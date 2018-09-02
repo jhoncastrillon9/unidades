@@ -41,6 +41,7 @@ class AdminPublicaciones extends CI_Controller {
 			$crud->change_field_type('Descripcion', 'text');
 			// Campos que no quiero mostrar en READ
 			$crud->unset_read_fields('FechaRegistro','FechaActualizacion','UsuarioId');
+			$crud->unset_clone();
 
 			//geenrar el render
 			$tabla = $crud->render();

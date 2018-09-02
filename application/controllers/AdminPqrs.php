@@ -57,6 +57,8 @@ class AdminPqrs extends CI_Controller {
 			// Campos que no quiero mostrar en READ
 			$crud->unset_read_fields('FechaRegistro','FechaActualizacion');
 			$crud->unset_edit_fields('FechaRegistro','FechaActualizacion');
+
+			$crud->unset_clone();
 			//geenrar el render
 			$tabla = $crud->render();
 

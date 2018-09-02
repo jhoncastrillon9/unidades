@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AdminEspaciosReservar extends CI_Controller {
+class AdminDocumentos extends CI_Controller {
 
 	public function __construct() {
 		parent:: __construct();
@@ -19,9 +19,11 @@ class AdminEspaciosReservar extends CI_Controller {
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('flexigrid');
-			$crud->set_table('espacioreserva');
-			$crud->set_subject('Espacio');
-			$crud->unset_clone();
+			$crud->set_table('documentos');
+			$crud->set_subject('Documento');
+
+			$crud->display_as('UrlDocumento','Archivo a Descargar');
+			$crud->set_field_upload('UrlDocumento','assets/uploads/files_documentos');
 
 			//geenrar el render
 			$tabla = $crud->render();
@@ -31,7 +33,7 @@ class AdminEspaciosReservar extends CI_Controller {
 			$vector['css_files']=$tabla->css_files;
 			$vector['js_files']=$tabla->js_files;
 
-			$this->load->view('AdminEspaciosReservar', $vector);
+			$this->load->view('AdminDocumentos', $vector);
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());

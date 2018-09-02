@@ -24,7 +24,7 @@ class AdminDocumentos extends CI_Controller {
 
 			$crud->display_as('UrlDocumento','Archivo a Descargar');
 			$crud->set_field_upload('UrlDocumento','assets/uploads/files_documentos');
-
+			$crud->unset_clone();
 			//geenrar el render
 			$tabla = $crud->render();
 

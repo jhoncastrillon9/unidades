@@ -19,11 +19,16 @@ class AdminInfoPagina extends CI_Controller {
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('flexigrid');
-			$crud->set_table('documentos');
-			$crud->set_subject('Documento');
-
-			$crud->display_as('UrlDocumento','Archivo a Descargar');
-			$crud->set_field_upload('UrlDocumento','assets/uploads/files_documentos');
+			$crud->set_table('infopagina');
+			$crud->set_subject('Pagina Web');
+			$crud->required_fields('Nombre','Telefonos','Email', 'UrlLogo');
+			$crud->columns('Nombre','Telefonos','Email', 'UrlLogo');
+			$crud->display_as('UrlLogo','Imagen Logo');
+			$crud->set_field_upload('UrlLogo','assets/uploads/files_infopagina');
+			$crud->change_field_type('Nombre', 'text');
+			$crud->unset_add();
+			$crud->order_by('FechaRegistro','desc');
+			$crud->unset_clone();
 
 			//geenrar el render
 			$tabla = $crud->render();
@@ -33,7 +38,7 @@ class AdminInfoPagina extends CI_Controller {
 			$vector['css_files']=$tabla->css_files;
 			$vector['js_files']=$tabla->js_files;
 
-			$this->load->view('AdminDocumentos', $vector);
+			$this->load->view('AdminInfoPagina', $vector);
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());

@@ -30,9 +30,9 @@
 		        </li>
 		         <li><a href="<?php echo site_url() ?>/Configurar"><i class="fa fa-cog"></i><span>Configurar</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	 <ul id="menu-academico-sub" >
-			            <li id="menu-academico-avaliacoes" ><a href="<?php echo site_url() ?>/Configurar/Info">Información de la pagina</a></li>
-			            <li id="menu-academico-boletim" ><a href="<?php echo site_url() ?>/Configurar/Imagenes">Imagenes</a></li>
-			            <li id="menu-academico-boletim" ><a href="<?php echo site_url() ?>/Perfil">Mi Perfil</a></li>
+			            <li id="menu-academico-avaliacoes" ><a href="<?php echo site_url() ?>/AdminInfoPagina">Información de la pagina</a></li>
+			            <li id="menu-academico-boletim" ><a href="<?php echo site_url() ?>/AdminImagenesPagina">Imagenes</a></li>
+			            <li id="menu-academico-boletim" ><a href="<?php echo site_url() ?>/AdminUsuarios">Mi Perfil</a></li>
 		             </ul>
 		         </li>
 		      </ul>
