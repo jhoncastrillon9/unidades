@@ -29,6 +29,9 @@ class AdminInfoPagina extends CI_Controller {
 			$crud->unset_add();
 			$crud->order_by('FechaRegistro','desc');
 			$crud->unset_clone();
+			// Campos que no quiero mostrar en READ y EDIT
+			$crud->unset_read_fields('FechaRegistro','FechaActualizacion');
+			$crud->unset_edit_fields('FechaRegistro','FechaActualizacion');
 
 			//geenrar el render
 			$tabla = $crud->render();

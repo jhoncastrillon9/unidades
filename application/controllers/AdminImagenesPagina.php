@@ -35,6 +35,7 @@ class AdminImagenesPagina extends CI_Controller {
 			$crud->unset_add_fields('FechaRegistro','FechaActualizacion');
 			$crud->unset_edit_fields('FechaRegistro','FechaActualizacion');
 			$crud->unset_clone();
+			
 			//geenrar el render
 			$tabla = $crud->render();
 

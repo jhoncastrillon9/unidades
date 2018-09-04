@@ -34,7 +34,7 @@ class AdminPublicaciones extends CI_Controller {
 			// Quitar Acciones
 			// $crud->unset_edit();
 			// Campo para cargar archivo
-			$crud->set_field_upload('Foto','assets/uploads/files');
+			$crud->set_field_upload('Foto','assets/uploads/files_post');
 			// ordenar la tabla por
 			$crud->order_by('FechaRegistro','desc');
 			// Campo que puede ingresar texto con formato
