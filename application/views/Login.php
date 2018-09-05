@@ -39,9 +39,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="group">
 								  <button type="submit" class="button">Ingresar</button>
-							
+
 							</div>
+							<?php
+							if (($this->session->flashdata('mensaje')) != null) {
+								// code...
+								$mensaje = $this->session->flashdata('mensaje');
+								 echo '<div class="" style="color:red; font-weight: 600; text-align: center;">'.$mensaje.'</div>';
+							};
+
+								?>
 							<div class="hr"></div>
+
 							<div class="foot-lnk">
 								<a href="#forgot">Recordar Contraseña?</a>
 							</div>
@@ -56,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 	</body>
 </html>
+
 
 
 <?php include 'shared/FooterLogin.php'; ?>

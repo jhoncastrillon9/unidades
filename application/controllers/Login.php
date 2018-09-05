@@ -47,7 +47,12 @@ class Login extends CI_Controller {
 
 		} else {
 			// redireccionar hacia login
-			redirect('login');
+
+			// $vector["usuario"]=$this->session->userdata("nombredeusuario");
+
+				$this->session->set_flashdata('mensaje', 'Usuario o contraseña invalido');
+				redirect('login');
+
 		}
 
 	}
