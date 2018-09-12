@@ -35,9 +35,9 @@
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">
-												<span class="prfil-img"><img src="<?php echo base_url() ?>/Content/Images/p1.png" alt=""> </span>
+												<span class="prfil-img"><img src="<?php echo base_url() ?>assets/uploads/files_imagenes_usuario/<?php echo $this->session->userdata("imagen") ?>" alt=""> </span>
 												<div class="user-name">
-													<span>Administrador</span>
+													<span><?php echo $this->session->userdata("nombredeusuario"); ?></span>
 												</div>
 												<i class="fa fa-angle-down lnr"></i>
 												<i class="fa fa-angle-up lnr"></i>
@@ -46,7 +46,7 @@
 										</a>
 										<ul class="dropdown-menu drp-mnu">
 											<li> <a href="<?php echo site_url() ?>/Perfil"><i class="fa fa-cog"></i> Perfil</a> </li>
-											<li> <a href="<?php echo site_url() ?>/Salir"><i class="fa fa-sign-out"></i>Salir</a> </li>
+											<li> <a href="<?php echo site_url() ?>/Login/Salir"><i class="fa fa-sign-out"></i>Salir</a> </li>
 										</ul>
 									</li>
 								</ul>

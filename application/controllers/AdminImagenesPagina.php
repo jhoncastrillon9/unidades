@@ -5,9 +5,9 @@ class AdminImagenesPagina extends CI_Controller {
 
 	public function __construct() {
 		parent:: __construct();
-		// if (!$this->session->userdata("idusuario")) {
-		// 	redirect('login');
-		// }
+		if (!$this->session->userdata("idusuario")) {
+			redirect('login');
+		}
 
 			$this->load->library('grocery_CRUD');
 	}
@@ -35,7 +35,7 @@ class AdminImagenesPagina extends CI_Controller {
 			$crud->unset_add_fields('FechaRegistro','FechaActualizacion');
 			$crud->unset_edit_fields('FechaRegistro','FechaActualizacion');
 			$crud->unset_clone();
-			
+
 			//geenrar el render
 			$tabla = $crud->render();
 

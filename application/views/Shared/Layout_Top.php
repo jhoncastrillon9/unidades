@@ -23,7 +23,7 @@
 					Altos de  <strong> Villa Real</strong>
 				</div>
 				<div class="container-ingresar col-sm-2 align-self-end text-right">
-					<a href="">Ingresar</a>
+					<a href="<?php echo site_url() ?>/Login">Ingresar</a>
 				</div>
 			</div>
 		</div>

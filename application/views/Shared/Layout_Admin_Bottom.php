@@ -28,7 +28,7 @@
 			            <li id="menu-academico-boletim" ><a href="<?php echo site_url() ?>/AdminDocumentos/index/add">Publicar Nuevo</a></li>
 		             </ul>
 		        </li>
-		         <li><a href="<?php echo site_url() ?>/Configurar"><i class="fa fa-cog"></i><span>Configurar</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		         <li><a href="#"><i class="fa fa-cog"></i><span>Configurar</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	 <ul id="menu-academico-sub" >
 			            <li id="menu-academico-avaliacoes" ><a href="<?php echo site_url() ?>/AdminInfoPagina">Información de la pagina</a></li>
 			            <li id="menu-academico-boletim" ><a href="<?php echo site_url() ?>/AdminImagenesPagina">Imagenes</a></li>

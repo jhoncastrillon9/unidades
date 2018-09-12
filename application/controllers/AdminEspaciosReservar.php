@@ -5,9 +5,9 @@ class AdminEspaciosReservar extends CI_Controller {
 
 	public function __construct() {
 		parent:: __construct();
-		// if (!$this->session->userdata("idusuario")) {
-		// 	redirect('login');
-		// }
+		if (!$this->session->userdata("idusuario")) {
+			redirect('login');
+		}
 
 			$this->load->library('grocery_CRUD');
 	}
