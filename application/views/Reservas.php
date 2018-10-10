@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <?php include 'shared/Layout_Top.php'; ?>
+<link rel="stylesheet" href="<?php echo base_url() ?>Content/Scripts/fullcalendar/fullcalendar.min.css" />
+
 
 <div class="container-general col-sm-10 row justify-content-md-center">
 	<div class="container-subgeneral col-sm-9">
@@ -99,8 +101,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 </div>
 
+<div class="col-md-6">
+
+<h1>Calendario</h1>
+<div id="calendar">
+</div>
 
 
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#calendar').fullCalendar({
+    eventSources: [
+         {
+             events: function(start, end, timezone, callback) {
+                 $.ajax({
+                 url: '<?php echo base_url() ?>index.php/Reservas/get_events',
+                 dataType: 'json',
+                 data: {
+                 // our hypothetical feed requires UNIX timestamps
+                 start: start.unix(),
+                 end: end.unix()
+                 },
+                 success: function(msg) {
+                     var events = msg.events;
+                     callback(events);
+                 }
+                 });
+             }
+         },
+     ]
+	});
+});
+</script>
 
+<script src="<?php echo base_url() ?>Content/Scripts/fullcalendar/moment.min.js"></script>
+<script src="<?php echo base_url() ?>Content/Scripts/fullcalendar/fullcalendar.min.js"></script>
+<script src="<?php echo base_url() ?>Content/Scripts/fullcalendar/gcal.js"></script>
 
 <?php include 'shared/Layout_Bottom.php'; ?>
