@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Urb. Villa Real</title>
-	<link rel="stylesheet" type="text/css" href="../Content/CSS/Main.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/content/CSS/Main.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="container-header row justify-content-center">
 				<div class="container-logo col-sm-2 offset-sm-1">
-					<img src="../Content/Images/IconLogo.png">
+					<img src="<?php echo base_url() ?>/content/Images/IconLogo.png">
 				</div>
 				<div class="container-nombre col-sm-7">
 					Altos de  <strong> Villa Real</strong>
@@ -38,19 +38,19 @@
 		  <div class="carousel-inner">
 		    <div class="carousel-item active">
 		    	<!-- Altura de 326px -->
-		      <img class="d-block w-100" src="../Content/Images/Cancha.jpg" alt="First slide">
+		      <img class="d-block w-100" src="<?php echo base_url() ?>/content/Images/Cancha.jpg" alt="First slide">
 		        <div class="carousel-caption d-none d-md-block">
 		    		<h1>Cancha de Fútbol</h1>
 		  		</div>
 		    </div>
 		    <div class="carousel-item">
-		      <img class="d-block w-100" src="../Content/Images/piscina.jpg" alt="First slide">
+		      <img class="d-block w-100" src="<?php echo base_url() ?>/content/Images/piscina.jpg" alt="First slide">
 		        <div class="carousel-caption d-none d-md-block">
 		    		<h1>Piscina de Niños</h1>
 		  		</div>
 		    </div>
 		    <div class="carousel-item">
-		      <img class="d-block w-100" src="../Content/Images/parque.jpg" alt="First slide">
+		      <img class="d-block w-100" src="<?php echo base_url() ?>/content/Images/parque.jpg" alt="First slide">
 		        <div class="carousel-caption d-none d-md-block">
 		    		<h1>Parque Infantil</h1>
 		  		</div>
@@ -74,38 +74,38 @@
 				<ul>
 					<li>
 						<a href="<?php echo site_url() ?>/Inicio">
-							<img src="../Content/Images/inicio.png" alt="">
+							<img src="<?php echo base_url() ?>/content/Images/inicio.png" alt="">
 							Inicio
 						</a>
 					</li>
 					<li>
 							<a href="<?php echo site_url() ?>/Reservas">
-								<img src="../Content/Images/Reservas.png" alt="">
+								<img src="<?php echo base_url() ?>/content/Images/Reservas.png" alt="">
 								Reservas</a>
 					</li>
 					<li>
 						<a href="<?php echo site_url() ?>/Pqrs">
-							<img src="../Content/Images/mensajes.png" alt="">
+							<img src="<?php echo base_url() ?>/content/Images/mensajes.png" alt="">
 							PQRS</a>
 					</li>
 					<li>
 						<a href="<?php echo site_url() ?>/Eventos">
-							<img src="../Content/Images/mensajes.png" alt="">
+							<img src="<?php echo base_url() ?>/content/Images/mensajes.png" alt="">
 							Eventos</a>
 					</li>
 					<li>
 						<a href="<?php echo site_url() ?>/Pagos">
-							<img src="../Content/Images/mensajes.png" alt="">
+							<img src="<?php echo base_url() ?>/content/Images/mensajes.png" alt="">
 							Pagos</a>
 					</li>
 					<li>
 						<a href="<?php echo site_url() ?>/Facturas">
-							<img src="../Content/Images/mensajes.png" alt="">
+							<img src="<?php echo base_url() ?>/content/Images/mensajes.png" alt="">
 							Factura</a>
 					</li>
 					<li>
 						<a class="item-menu" data-toggle="collapse" href="#collapseDocumentos" aria-controls="collapseDocumentos">
-							<img src="../Content/Images/descargar.png" alt="">
+							<img src="<?php echo base_url() ?>/content/Images/descargar.png" alt="">
 							Documentos</a>
 							<div class="collapse" id="collapseDocumentos">
 								<ul class="documents">
@@ -116,6 +116,5 @@
 								</ul>
 							</div>
 					</li>
-
 				</ul>
 			</div>
