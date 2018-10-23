@@ -18,91 +18,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="subtitle-general text-center">
 			Aquí puedes reservar los espacios de nuestra unidad (Salon Social, Bbq, Otros).
 		</div>
-
-		<div class="container-info container-pqrs col-sm-12">
-			<div class="title-container">
-				<span>Información del Propietario</span>
-			</div>
-			<div class="">
-				<form>
-					<div class="row form-container">
-						<div class="col">
-							<label for="nombre">Nombre</label>
-							<input id="nombre" name="nombre" type="text" class="form-control form-control-sm input-form" required>
-						</div>
-						<div class="col">
-							<label for="direccion">Dirección / Apto</label>
-							<input type="text" id="direccion" name="direccion" class="form-control form-control-sm input-form" required>
-						</div>
-					</div>
-
-					<div class="row form-container">
-						<div class="col">
-							<label for="celular">Celular</label>
-							<input id="celular" name="celular" type="number" class="form-control  form-control-sm input-form" required>
-						</div>
-						<div class="col">
-							<label for="telefono">Teléfono Fijo</label>
-							<input type="number" id="telefono" name="telefono" class="form-control form-control-sm input-form">
-						</div>
-					</div>
-
-					<div class="row form-container">
-						<div class="col">
-							<label for="correo">Correo Eletrónico</label>
-							<input id="correo" name="correo" type="email" class="form-control form-control-sm input-form" required>
-						</div>
-					</div>
-
-					<div class="title-container">
-						<span>Información de la reserva</span>
-					</div>
-
-					<div class="row form-container">
-						<div class="col">
-							<label for="Tipo">Espacio a Reservar</label>
-							<select id="tipo" name="tipo" class="form-control form-control-sm input-form" required>
-								<option selected>Selecione...</option>
-								<option value="1">Salon Social Principal</option>
-								<option value="2">Salon Social Secundario</option>
-								<option value="3">Bbq</option>
-							</select>
-						</div>
-						<div class="col">
-							<label for="Fecha">Fecha</label>
-							<input id="fecha" name="fecha" type="date" class="form-control  form-control-sm input-form"/>
-						</div>
-					</div>
-
-					<div class="row form-container">
-						<div class="col">
-							<label for="HoraInicial">Hora inicial del Evento</label>
-							<input id="horainicial" name="horainical" type="time" class="form-control  form-control-sm input-form">
-						</div>
-						<div class="col">
-							<label for="horafinal">Hora Final del Evento</label>
-							<input id="horafinal" name="horafinal" type="time" class="form-control  form-control-sm input-form">
-						</div>
-					</div>
-
-					<div class="row form-container">
-						<div class="col">
-							<label for="mensaje">Observación</label>
-								<textarea class="form-control input-form" id="mensaje" name="mensaje" rows="5" placeholder="Describa el evento a realizar"></textarea>
-						</div>
-					</div>
-
-					<div class="row form-container">
-						<div class="col text-right">
-					<input type="submit" name="reservar" class="btn-enviar" value="Reservar">
-						</div>
-					</div>
-
-				</form>
-			</div>
-
-		</div>
-
 	</div>
 </div>
 
@@ -115,74 +30,127 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+<div class="modal fade bd-example-modal-lg" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
+         <h4 class="modal-title" id="myModalLabel">Crear Reserva</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Calendar Event</h4>
       </div>
       <div class="modal-body">
-      <?php echo form_open(site_url("Reservas/add_event"), array("class" => "form-horizontal")) ?>
-      <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">Event Name</label>
-                <div class="col-md-8 ui-front">
-                    <input type="text" class="form-control" name="name" value="">
+        <?php echo form_open(site_url("Reservas/add_event"), array("class" => "form-horizontal")) ?>
+
+              <div class="container-general col-sm-12 row justify-content-md-center">
+                <div class="container-subgeneral col-sm-12">
+                  <div class="container-info container-pqrs col-sm-12">
+                    <div class="title-container">
+                      <span>Información del Propietario</span>
+                    </div>
+                    <div class="">
+                 
+                        <div class="row form-container">
+                          <div class="col">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" name="nombre" type="text" class="form-control form-control-sm input-form" required>
+                          </div>
+                          <div class="col">
+                            <label for="direccion">Dirección / Apto</label>
+                            <input type="text" id="direccion" name="direccion" class="form-control form-control-sm input-form" required>
+                          </div>
+                        </div>
+
+                        <div class="row form-container">
+                          <div class="col">
+                            <label for="celular">Celular</label>
+                            <input id="celular" name="celular" type="number" class="form-control  form-control-sm input-form" required>
+                          </div>
+                          <div class="col">
+                            <label for="telefono">Teléfono Fijo</label>
+                            <input type="number" id="telefono" name="telefono" class="form-control form-control-sm input-form">
+                          </div>
+                        </div>
+
+                        <div class="row form-container">
+                          <div class="col">
+                            <label for="correo">Correo Eletrónico</label>
+                            <input id="correo" name="correo" type="email" class="form-control form-control-sm input-form" required>
+                          </div>
+                        </div>
+
+                        <div class="title-container">
+                          <span>Información de la reserva</span>
+                        </div>
+
+                        <div class="row form-container">
+                          <div class="col">
+                            <label for="Tipo">Espacio a Reservar</label>
+                            <select id="name" name="name" class="form-control form-control-sm input-form" required>
+                              <option selected>Selecione...</option>
+                              <option value="1">Salon Social Principal</option>
+                              <option value="2">Salon Social Secundario</option>
+                              <option value="3">Bbq</option>
+                            </select>
+                          </div>
+                          <div class="col">
+                            <label for="Fecha">Fecha</label>
+                            <input id="fecha" name="fecha" type="date" class="form-control  form-control-sm input-form"/>
+                          </div>
+                        </div>
+
+                        <div class="row form-container">
+                          <div class="col">
+                            <label for="HoraInicial">Fecha y hora de inicio</label>
+                            <input type="text" class="form-control  form-control-sm input-form" name="start_date" id="start_date" data-date-format="yyyy/m/d H:i" autocomplete="off" readonly="1" placeholder="Seleciona la fecha y hora de inicio">              
+                          </div>
+                          <div class="col">
+                            <label for="horafinal">Fecha y hora final</label>
+                            <input type="text" class="form-control form-control-sm input-form" name="end_date" id="end_date" data-date-format="yyyy/m/d H:i" autocomplete="off" readonly="1" placeholder="Seleciona la fecha y hora de final">
+                          </div>
+                        </div>
+                        <div class="row form-container">
+                          <div class="col">
+                            <label for="mensaje">Observación</label>
+                              <textarea class="form-control input-form" id="description" name="description" rows="5" placeholder="Describa el evento a realizar"></textarea>
+                          </div>
+                        </div>
+
+                        <div class="row form-container">
+                          <div class="col text-right">
+                        <input type="submit" name="reservar" class="btn-enviar" value="Reservar">
+                          </div>
+                        </div>
+
+                     
+                    </div>
+
+                  </div>
+
                 </div>
-        </div>
-        <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">Description</label>
-                <div class="col-md-8 ui-front">
-                    <input type="text" class="form-control" name="description">
-                </div>
-        </div>
-        <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">Start Date</label>
-                <div class="col-md-8">
-                    <input type="text" class="form-control" name="start_date" id="start_date" data-date-format="yyyy/m/d H:i" autocomplete="off" readonly="1" placeholder="Seleciona la fecha y hora de inicio">
-                </div>
-        </div>
-        <div class="form-group">
-                <label for="p-in" class="col-md-4 label-heading">End Date</label>
-                <div class="col-md-8">
-                    <input type="text" class="form-control" name="end_date" id="end_date" data-date-format="yyyy/m/d H:i" autocomplete="off" readonly="1" placeholder="Seleciona la fecha y hora de final">
-                </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <input type="submit" class="btn btn-primary" value="Guardar">
-        <?php echo form_close() ?>
+                
+              </div>
+       <?php echo form_close() ?>
       </div>
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
-    $('.form_datetime').datetimepicker({
-      //language:  'fr',
-      weekStart: 1,
-      todayBtn:  1,
-      autoclose: 1,
-      todayHighlight: 1,
-      startView: 2,
-      forceParse: 0,
-      showMeridian: 1
-    });
 
-        $('#start_date').datetimepicker({
-      //language:  'fr',
+
+      $('#start_date').datetimepicker({
+      language:  'es',
       weekStart: 1,
       todayBtn:  1,
       autoclose: 1,
       todayHighlight: 1,
       startView: 2,
       forceParse: 0,
-      showMeridian: 1
+      showMeridian: 1,
+      locale: 'es'
     });
 
       $('#end_date').datetimepicker({
-        //language:  'fr',
+        language:  'es',
         weekStart: 1,
         todayBtn:  1,
         autoclose: 1,
@@ -204,8 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(document).ready(function() {
   var date_last_clicked = null;
 
-$('#calendar').fullCalendar({
-    locale: 'es',
+$('#calendar').fullCalendar({    
     eventSources: [
     {
         events: function(start, end, timezone, callback) {
@@ -241,5 +208,6 @@ $('#calendar').fullCalendar({
 <script src="<?php echo base_url() ?>Content/Scripts/fullcalendar/moment.min.js"></script>
 <script src="<?php echo base_url() ?>Content/Scripts/fullcalendar/fullcalendar.min.js"></script>
 <script src="<?php echo base_url() ?>Content/Scripts/fullcalendar/gcal.js"></script>
+<script src="<?php echo base_url() ?>Content/Scripts/fullcalendar/locale/es.js"></script>
 
 <?php include 'shared/Layout_Bottom.php'; ?>
