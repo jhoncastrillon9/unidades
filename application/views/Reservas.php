@@ -4,6 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php include 'shared/Layout_Top.php'; ?>
 <link rel="stylesheet" href="<?php echo base_url() ?>Content/Scripts/fullcalendar/fullcalendar.min.css" />
 
+<link href="<?php echo base_url() ?>Content/Librerias/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="<?php echo base_url() ?>Content/Librerias/datetimepicker/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>Content/Librerias/datetimepicker/js/locales/bootstrap-datetimepicker.es.js" charset="UTF-8"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
 <div class="container-general col-sm-10 row justify-content-md-center">
 	<div class="container-subgeneral col-sm-9">
@@ -103,36 +108,134 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="col-md-6">
 
-<h1>Calendario</h1>
-<div id="calendar">
+	<h1>Calendario de Eventos</h1>
+	<div id="calendar">
+	</div>
+
 </div>
 
 
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Calendar Event</h4>
+      </div>
+      <div class="modal-body">
+      <?php echo form_open(site_url("Reservas/add_event"), array("class" => "form-horizontal")) ?>
+      <div class="form-group">
+                <label for="p-in" class="col-md-4 label-heading">Event Name</label>
+                <div class="col-md-8 ui-front">
+                    <input type="text" class="form-control" name="name" value="">
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="p-in" class="col-md-4 label-heading">Description</label>
+                <div class="col-md-8 ui-front">
+                    <input type="text" class="form-control" name="description">
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="p-in" class="col-md-4 label-heading">Start Date</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="start_date" id="start_date" data-date-format="yyyy/m/d H:i" autocomplete="off" readonly="1" placeholder="Seleciona la fecha y hora de inicio">
+                </div>
+        </div>
+        <div class="form-group">
+                <label for="p-in" class="col-md-4 label-heading">End Date</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="end_date" id="end_date" data-date-format="yyyy/m/d H:i" autocomplete="off" readonly="1" placeholder="Seleciona la fecha y hora de final">
+                </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <input type="submit" class="btn btn-primary" value="Guardar">
+        <?php echo form_close() ?>
+      </div>
+    </div>
+  </div>
 </div>
+
 <script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+      //language:  'fr',
+      weekStart: 1,
+      todayBtn:  1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      forceParse: 0,
+      showMeridian: 1
+    });
+
+        $('#start_date').datetimepicker({
+      //language:  'fr',
+      weekStart: 1,
+      todayBtn:  1,
+      autoclose: 1,
+      todayHighlight: 1,
+      startView: 2,
+      forceParse: 0,
+      showMeridian: 1
+    });
+
+      $('#end_date').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+
+</script>
+
+
+<!--Listar Calendario-->
+<script type="text/javascript">
+
+
+  
+
 $(document).ready(function() {
-	$('#calendar').fullCalendar({
+  var date_last_clicked = null;
+
+$('#calendar').fullCalendar({
+    locale: 'es',
     eventSources: [
-         {
-             events: function(start, end, timezone, callback) {
-                 $.ajax({
-                 url: '<?php echo base_url() ?>index.php/Reservas/get_events',
-                 dataType: 'json',
-                 data: {
-                 // our hypothetical feed requires UNIX timestamps
-                 start: start.unix(),
-                 end: end.unix()
-                 },
-                 success: function(msg) {
-                     var events = msg.events;
-                     callback(events);
-                 }
-                 });
-             }
-         },
-     ]
-	});
+    {
+        events: function(start, end, timezone, callback) {
+            $.ajax({
+                url: '<?php echo base_url() ?>index.php/Reservas/get_events',
+                dataType: 'json',
+                data: {                
+                    start: start.unix(),
+                    end: end.unix()
+                },
+                success: function(msg) {
+                    var events = msg.events;
+                    callback(events);
+                }
+            });
+       }
+    },
+    ],
+    dayClick: function(date, jsEvent, view) {
+        date_last_clicked = $(this);
+        $(this).css('background-color', '#bed7f3');
+        $('#addModal').modal();
+    },
 });
+});
+</script>
+
+<!--Añadir Evento al Calendario-->
+<script type="text/javascript">
+
 </script>
 
 <script src="<?php echo base_url() ?>Content/Scripts/fullcalendar/moment.min.js"></script>
